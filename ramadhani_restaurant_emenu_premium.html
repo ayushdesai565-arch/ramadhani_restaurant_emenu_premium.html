@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>રામાધણી રેસ્ટોરન્ટ | E-Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Fraunces:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:#efe4d4;color:#2b1810;font-family:Poppins,'Noto Sans Gujarati',sans-serif}
+button,input{font:inherit}
+button{border:0;cursor:pointer}
+a{text-decoration:none;color:inherit}
+.app{max-width:520px;margin:auto;min-height:100vh;background:#fbf3e7;box-shadow:0 0 35px rgba(55,25,10,.12)}
+.font-guj{font-family:'Noto Sans Gujarati',Poppins,sans-serif}
+.font-display{font-family:Fraunces,'Noto Sans Gujarati',serif}
+.hero{position:relative;padding:28px 20px 26px;border-radius:0 0 32px 32px;overflow:hidden;background:linear-gradient(155deg,#5c0e1c,#3d0812);color:#fbf3e7}
+.hero:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-80px;background:#c89b3c;opacity:.18}
+.hero:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;left:-80px;bottom:-120px;background:#e4c878;opacity:.08}
+.hero>*{position:relative}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.rating{font-size:11px;color:#e4c878;font-weight:700}
+.stars{letter-spacing:1px;color:#c89b3c}
+.brand{font-size:30px;font-weight:800;line-height:1.2;margin:0}
+.subtitle{font-size:14px;color:#e4c878;margin:7px 0}
+.location{font-size:12px;color:#fff;opacity:.82}
+.pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.pill{font-size:10px;font-weight:700;padding:6px 10px;border-radius:99px;background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.13)}
+.pill.green{background:rgba(63,125,79,.25);color:#c9efcf}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.action{padding:9px 5px;border-radius:12px;text-align:center;font-size:11px;font-weight:700;color:#fff;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16)}
+.action span{display:block;font-size:16px;margin-bottom:2px}
+.promo{margin:15px 20px 0;padding:14px;border-radius:18px;background:linear-gradient(90deg,#c89b3c,#e4c878);display:flex;justify-content:space-between;align-items:center;color:#3d0812}
+.promo b{font-family:'Noto Sans Gujarati';font-size:13px}
+.promo small{display:block;margin-top:3px;font-size:10px;font-weight:600}
+.insta{margin:11px 20px 0;background:#fff;border:1px solid rgba(200,155,60,.3);border-radius:18px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
+.insta-left{display:flex;gap:11px;align-items:center}
+.insta-icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:white;font-size:20px;background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
+.insta b{font-size:12px}.insta small{display:block;color:#ad9383;font-size:10px;margin-top:2px}
+.follow{background:#f3e7d3;color:#5c0e1c;border-radius:999px;padding:7px 12px;font-size:10px;font-weight:800}
+.search{margin:12px 20px 0;background:#fff;border-radius:18px;padding:12px 15px;box-shadow:0 5px 18px rgba(92,14,28,.08);display:flex;gap:9px;align-items:center}
+.search input{border:0;outline:0;width:100%;font-size:13px;background:transparent;font-family:'Noto Sans Gujarati',Poppins}
+.categories{position:sticky;top:0;z-index:10;background:#fbf3e7;padding:13px 20px;display:flex;gap:8px;overflow-x:auto}
+.categories::-webkit-scrollbar{display:none}
+.cat{white-space:nowrap;padding:9px 14px;border-radius:999px;background:#fff;color:#5c0e1c;border:1px solid rgba(200,155,60,.35);font-size:11px;font-weight:800}
+.cat.active{background:#5c0e1c;color:#fff;border-color:#5c0e1c}
+.menu{padding:3px 20px 110px}
+.section{margin:22px 0 0;scroll-margin-top:65px}
+.section-title{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.section-title .emoji{font-size:20px}
+.section-title h2{font-family:'Noto Sans Gujarati';font-size:18px;color:#5c0e1c;margin:0}
+.section-title small{font-size:10px;color:#ad9383}
+.item{background:#fff;border:1px solid rgba(200,155,60,.20);border-radius:17px;padding:14px 13px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 9px rgba(92,14,28,.045)}
+.item-name{font-family:'Noto Sans Gujarati';font-weight:700;font-size:13px;line-height:1.4}
+.item-en{font-size:10px;color:#ad9383;margin-top:2px}
+.price{font-weight:800;color:#5c0e1c;font-size:14px;margin-top:5px}
+.add{padding:8px 16px;border-radius:11px;background:#f3e7d3;color:#5c0e1c;border:1px solid #c89b3c;font-size:10px;font-weight:800}
+.qty{display:flex;align-items:center;gap:11px;background:#5c0e1c;color:white;padding:6px 8px;border-radius:11px}
+.qty button{background:none;color:#fff;font-size:17px;line-height:1}
+.qty b{min-width:13px;text-align:center;font-size:12px}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#fff;border-top:1px solid rgba(200,155,60,.25);display:flex;justify-content:space-around;padding:9px 8px calc(9px + env(safe-area-inset-bottom));z-index:30}
+.nav{background:none;color:#ad9383;font-size:10px;text-align:center}
+.nav.active{color:#5c0e1c;font-weight:800}.nav span{display:block;font-size:18px;margin-bottom:2px}
+.cartbar{position:fixed;bottom:72px;left:50%;transform:translateX(-50%);width:min(480px,calc(100% - 32px));background:#5c0e1c;color:#fff;border-radius:18px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;z-index:25;box-shadow:0 10px 25px rgba(60,8,18,.25)}
+.cartbar .count{background:#c89b3c;color:#3d0812;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;font-weight:900}
+.cart-left{display:flex;align-items:center;gap:9px;font-family:'Noto Sans Gujarati';font-size:12px;font-weight:700}
+.cart-total{font-size:13px;font-weight:800}
+.overlay{position:fixed;inset:0;background:rgba(20,8,4,.52);z-index:50;display:none;align-items:flex-end;justify-content:center}
+.modal{width:min(520px,100%);background:#fbf3e7;border-radius:28px 28px 0 0;padding:22px 20px 28px;max-height:85vh;overflow:auto}
+.modal h3{font-family:'Noto Sans Gujarati';color:#5c0e1c;margin:0 0 15px}
+.tablegrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.tablebtn{aspect-ratio:1;border-radius:12px;background:#f3e7d3;color:#5c0e1c;border:1px solid rgba(200,155,60,.4);font-weight:800}
+.modal-close{float:right;background:none;font-size:22px;color:#5c0e1c}
+.review{margin:0 20px 18px;background:#fff;border:1px solid rgba(200,155,60,.3);border-radius:20px;padding:16px}
+.review-head{display:flex;justify-content:space-between;align-items:center}
+.review h3{font-family:'Noto Sans Gujarati';font-size:16px;color:#5c0e1c;margin:0}
+.review-stars{color:#c89b3c;font-size:16px}
+.review p{font-family:'Noto Sans Gujarati';font-size:12px;color:#6f584c;line-height:1.7;margin:8px 0}
+.review-btn{display:block;text-align:center;background:#5c0e1c;color:#fff;border-radius:13px;padding:11px;font-size:11px;font-weight:800}
+.footer{text-align:center;padding:12px 20px 95px;color:#ad9383;font-size:10px}
+.empty{text-align:center;padding:30px;color:#ad9383;font-family:'Noto Sans Gujarati'}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="topline"><div class="rating"><span class="stars">★★★★★</span> Google Reviews</div><div>🍽️</div></div>
+    <h1 class="brand font-guj">રામાધણી રેસ્ટોરન્ટ</h1>
+    <p class="subtitle font-guj">સ્વાદ જે યાદ રહી જાય ❤️</p>
+    <div class="location">📍 ગુજરાત · Authentic Gujarati & Kathiyawadi Taste</div>
+    <div class="pills">
+      <span class="pill green">🟢 Pure Veg</span>
+      <span class="pill">✨ Premium Dining</span>
+      <span class="pill">📱 Digital E-Menu</span>
+    </div>
+    <div class="actions">
+      <a class="action" href="tel:+916353729228"><span>☎️</span>Call</a>
+      <a class="action" href="https://wa.me/916353729228" target="_blank"><span>💬</span>WhatsApp</a>
+      <a class="action" href="https://www.google.com/maps/search/?api=1&query=રામાધણી%20રેસ્ટોરન્ટ" target="_blank"><span>📍</span>Location</a>
+    </div>
+  </header>
+
+  <div class="promo">
+    <div><b>આજનું ખાસ — રામાધણીનો સ્વાદ 🍛</b><small>મેનુ જુઓ અને તમારા મનપસંદ ભોજનનો ઓર્ડર આપો</small></div>
+    <span style="font-size:22px">🔥</span>
+  </div>
+
+  <a class="insta" href="https://www.instagram.com/" target="_blank">
+    <div class="insta-left">
+      <div class="insta-icon">◎</div>
+      <div><b>Instagram Profile</b><small>Follow Ramadhani Restaurant</small></div>
+    </div>
+    <div class="follow">Follow</div>
+  </a>
+
+  <div class="search"><span>🔍</span><input id="search" placeholder="શું ખાવું છે? શોધો..." oninput="render()"></div>
+
+  <div class="categories" id="cats"></div>
+  <main class="menu" id="menu"></main>
+
+  <section class="review">
+    <div class="review-head"><h3>Google Reviews ⭐</h3><div class="review-stars">★★★★★</div></div>
+    <p>તમારો અનુભવ અમારે માટે ખૂબ મહત્વનો છે. રામાધણી રેસ્ટોરન્ટ વિશે તમારો સાચો અભિપ્રાય Google પર શેર કરો.</p>
+    <a class="review-btn" href="https://www.google.com/search?q=રામાધણી+રેસ્ટોરન્ટ+Google+Reviews" target="_blank">⭐ Google પર Review જુઓ / આપો</a>
+  </section>
+
+  <div class="footer">રામાધણી રેસ્ટોરન્ટ · Premium Digital E-Menu<br>© 2026 All Rights Reserved</div>
+
+  <div id="cartbar" class="cartbar" style="display:none" onclick="openCart()">
+    <div class="cart-left"><div class="count" id="cartCount">0</div>તમારો ઓર્ડર</div>
+    <div class="cart-total" id="cartTotal">₹0 🛍️</div>
+  </div>
+
+  <nav class="bottom">
+    <button class="nav active" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span>⌂</span>Home</button>
+    <button class="nav active" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})"><span>🍽️</span>મેનુ</button>
+    <button class="nav" onclick="openCart()"><span>🛍️</span>કાર્ટ</button>
+    <a class="nav" href="tel:+916353729228"><span>☎️</span>Contact</a>
+  </nav>
+</div>
+
+<div class="overlay" id="tableOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeTable()">×</button>
+    <h3>ટેબલ નંબર પસંદ કરો</h3>
+    <p style="font-family:'Noto Sans Gujarati';font-size:11px;color:#8a6d5c">તમારા ટેબલ પર રહેલો નંબર પસંદ કરો</p>
+    <div class="tablegrid" id="tablegrid"></div>
+  </div>
+</div>
+
+<div class="overlay" id="cartOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeCart()">×</button>
+    <h3>તમારો ઓર્ડર</h3>
+    <div id="cartItems"></div>
+    <div id="cartFooter"></div>
+  </div>
+</div>
+
+<script>
+const MENU=[
+{id:'thali',name:'થાળી',en:'Thali',icon:'🍛',items:[
+['કાઠિયાવાડી થાળી','Kathiyawadi Thali',140],['ગુજરાતી થાળી','Gujarati Thali',100],['પંજાબી થાળી','Punjabi Thali',130],['રાજસ્થાની થાળી','Rajasthani Thali',150]]},
+{id:'soup',name:'સૂપ',en:'Soup',icon:'🍲',items:[
+['વેજ. મંચાવ સૂપ','Veg. Manchow Soup',80],['વેજ. હોટ એન્ડ સ્યોર','Veg. Hot & Sour',80]]},
+{id:'chinese',name:'ચાઇનીઝ',en:'Chinese',icon:'🥢',items:[
+['વેજ મંચુરિયન ડ્રાય','Veg Manchurian Dry',90],['વેજ મંચુરિયન ગ્રેવી','Veg Manchurian Gravy',140],['પનીર ચીલી ડ્રાય','Paneer Chilli Dry',140],['વેજ ચીલી ગ્રેવી','Veg Chilli Gravy',130],['વેજ. નૂડલ્સ','Veg. Noodles',90]]},
+{id:'cheese',name:'ચીઝ',en:'Cheese',icon:'🧀',items:[
+['ચીઝ બટર મસાલા','Cheese Butter Masala',200],['ચીઝ મસાલા','Cheese Masala',180],['ચીઝ કડાઈ','Cheese Kadai',180],['ચીઝ તવા મસાલા','Cheese Tava Masala',180]]},
+{id:'kaju',name:'કાજુ કા કમાલ',en:'Kaju Ka Kamal',icon:'🥜',items:[
+['કાજુ બટર મસાલા','Kaju Butter Masala',200],['કાજુ પનીર મસાલા','Kaju Paneer Masala',200],['કાજુ કરી','Kaju Curry',180],['કાજુ મસાલા','Kaju Masala',180],['કાજુ તુફાની','Kaju Tufani',200],['કોયા કાજુ','Koya Kaju',180]]},
+{id:'rice',name:'રાઈસ-દાળ',en:'Rice & Dal',icon:'🍚',items:[
+['વેજ. પુલાવ','Veg. Pulav',90],['કાજુ પુલાવ','Kaju Pulav',140],['કાશ્મીરી પુલાવ સ્વીટ','Kashmiri Pulav Sweet',150],['હૈદરાબાદી બિરયાની','Hyderabadi Biryani',140],['પ્લેન રાઈસ','Plain Rice',50],['જીરા રાઈસ','Jira Rice',70],['પ્લેન ખીચડી','Plain Khichadi',70],['કઢી-ખીચડી','Kadhi-Khichadi',100],['દાળ ફ્રાય','Dal Fry',80],['દાળ તડકા','Dal Tadka',90],['દાળ-રાઈસ','Dal-Rice',80],['ગુજરાતી દાળ (સ્વીટ)','Gujarati Dal (Sweet)',80]]},
+{id:'roti',name:'ભાખરી-રોટી',en:'Bhakhari & Roti',icon:'🫓',items:[
+['પ્લેન ભાખરી','Plain Bhakhari',10],['ઘી વાળી ભાખરી','Bhakhari with Ghee',12],['પ્લેન રોટી','Plain Roti',10],['ઘી વાળી રોટી','Roti with Ghee',12],['પ્લેન બાજરા રોટી','Plain Bajara Roti',20],['ઘી વાળી બાજરા રોટી','Bajara Roti with Ghee',25],['પ્લેન પરોઠા','Plain Paratha',20],['ઘી વાળા પરોઠા','Paratha with Ghee',25],['સ્પે. વઘારેલો રોટલો','SP. Vagar Rotla',80],['આલુ પરોઠા','Aloo Paratha',50],['ચણા પુરી','Chana Puri',50],['લસણની ચટણી','Lasan Chatani',80],['ટામેટાની ચટણી','Tamater Chatani',80]]},
+{id:'extra',name:'એક્સ્ટ્રા',en:'Extra',icon:'🍽️',items:[
+['ઘી (વાટકી)','Ghee (Bowl)',25],['ગોળ (વાટકી)','Jaggery (Bowl)',15],['મસાલા પાપડ','Masala Papad',25],['રોસ્ટેડ પાપડ','Roasted Papad',15],['ફ્રાય પાપડ','Fry Papad',20],['છાસ','Butter Milk',20],['ટામેટા સલાડ','Tomato Salad',30],['ગ્રીન સલાડ','Green Salad',40],['દહીં વાટકી','Dahi Bowl',30],['દૂધ ગ્લાસ','Milk Glass',30],['લસણની ચટણી (વાટકી)','Garlic Paste (Bowl)',40]]},
+{id:'churma',name:'ચુરમું',en:'Churma',icon:'🍯',items:[
+['વઘારેલો રોટલો દહીંમાં','Vagar Rotla with Dahi',110],['રોટલાનું ચુરમું','Roti Churma',100],['ભાખરીનું ચુરમું','Bhakhari Churma',100]]}
+];
+let cart={}; let table=null; let active='thali';
+const all=()=>MENU.flatMap(c=>c.items.map((x,i)=>({id:c.id+'-'+i,guj:x[0],en:x[1],price:x[2],cat:c.id})));
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function renderCats(){
+ document.getElementById('cats').innerHTML=MENU.map(c=>`<button class="cat ${c.id===active?'active':''}" onclick="active='${c.id}';document.getElementById('${c.id}').scrollIntoView({behavior:'smooth'});renderCats()"> ${c.icon} ${c.name}</button>`).join('');
+}
+function render(){
+ renderCats(); const q=document.getElementById('search').value.trim().toLowerCase();
+ let out='';
+ MENU.forEach(c=>{
+   let its=c.items.map((x,i)=>({id:c.id+'-'+i,guj:x[0],en:x[1],price:x[2]})).filter(x=>!q||x.guj.toLowerCase().includes(q)||x.en.toLowerCase().includes(q));
+   if(!its.length)return;
+   out+=`<section class="section" id="${c.id}"><div class="section-title"><span class="emoji">${c.icon}</span><h2>${c.name}</h2><small>${c.en}</small></div>`;
+   out+=its.map(x=>itemHTML(x)).join('')+'</section>';
+ });
+ document.getElementById('menu').innerHTML=out||'<div class="empty">કંઈ મળ્યું નહીં 🔍</div>';
+ updateCartBar();
+}
+function itemHTML(x){
+ const q=cart[x.id]||0;
+ return `<div class="item"><div style="flex:1;padding-right:10px"><div class="item-name">${esc(x.guj)}</div><div class="item-en">${esc(x.en)}</div><div class="price">₹${x.price}</div></div>${q?`<div class="qty"><button onclick="change('${x.id}',-1)">−</button><b>${q}</b><button onclick="change('${x.id}',1)">+</button></div>`:`<button class="add" onclick="change('${x.id}',1)">ADD</button>`}</div>`;
+}
+function change(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);if(!cart[id])delete cart[id];render()}
+function updateCartBar(){
+ let count=Object.values(cart).reduce((a,b)=>a+b,0), total=all().filter(x=>cart[x.id]).reduce((s,x)=>s+x.price*cart[x.id],0);
+ document.getElementById('cartbar').style.display=count?'flex':'none';
+ document.getElementById('cartCount').textContent=count; document.getElementById('cartTotal').textContent='₹'+total+' 🛍️';
+}
+function openTable(){document.getElementById('tableOverlay').style.display='flex'}
+function closeTable(){document.getElementById('tableOverlay').style.display='none'}
+function selectTable(n){table=n;closeTable()}
+function openCart(){
+ const items=all().filter(x=>cart[x.id]); let total=items.reduce((s,x)=>s+x.price*cart[x.id],0);
+ document.getElementById('cartItems').innerHTML=items.length?items.map(x=>`<div class="item"><div><div class="item-name">${x.guj}</div><div class="item-en">${x.en} · ₹${x.price}</div><div class="price">₹${x.price*cart[x.id]}</div></div><div class="qty"><button onclick="changeCart('${x.id}',-1)">−</button><b>${cart[x.id]}</b><button onclick="changeCart('${x.id}',1)">+</button></div></div>`).join(''):'<div class="empty">તમારો કાર્ટ ખાલી છે 🛍️</div>';
+ document.getElementById('cartFooter').innerHTML=items.length?`<div style="display:flex;justify-content:space-between;font-weight:800;color:#5c0e1c;padding:15px 2px;border-top:1px dashed #c89b3c">કુલ રકમ <span>₹${total}</span></div><button onclick="sendOrder()" style="width:100%;padding:14px;border-radius:16px;background:#5c0e1c;color:#fff;font-family:'Noto Sans Gujarati';font-weight:800">WhatsApp પર ઓર્ડર મોકલો 💬</button>`:'';
+ document.getElementById('cartOverlay').style.display='flex';
+}
+function closeCart(){document.getElementById('cartOverlay').style.display='none'}
+function changeCart(id,d){change(id,d);openCart()}
+function sendOrder(){
+ if(!table){closeCart();openTable();alert('કૃપા કરીને પહેલાં ટેબલ નંબર પસંદ કરો.');return}
+ const items=all().filter(x=>cart[x.id]);let total=items.reduce((s,x)=>s+x.price*cart[x.id],0);
+ let msg='🍽️ રામાધણી રેસ્ટોરન્ટ%0A%0A📋 નવો ઓર્ડર%0Aટેબલ: '+table+'%0A%0A';
+ items.forEach((x,i)=>msg+=(i+1)+'. '+x.en+' × '+cart[x.id]+' — ₹'+(x.price*cart[x.id])+'%0A');
+ msg+='%0Aકુલ: ₹'+total;
+ window.open('https://wa.me/916353729228?text='+msg,'_blank');
+}
+const tg=document.getElementById('tablegrid');tg.innerHTML=Array.from({length:20},(_,i)=>`<button class="tablebtn" onclick="selectTable(${i+1})">${i+1}</button>`).join('');
+render();
+</script>
+</body>
+</html>
